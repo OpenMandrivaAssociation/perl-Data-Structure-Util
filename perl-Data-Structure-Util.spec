@@ -17,6 +17,7 @@ BuildRequires:	perl(Test::Pod)
 BuildRequires:	perl(Clone)
 BuildRequires:	perl(File::Find::Rule)
 BuildRequires:	perl(ExtUtils::CBuilder)
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 "Data::Structure::Util" is a toolbox to manipulate the data inside a
