@@ -1,7 +1,7 @@
 %define module	Data-Structure-Util
 %define name	perl-%{module}
-%define version 0.12
-%define release %mkrel 4
+%define version 0.13
+%define release %mkrel 1
 
 Name:		%{name}
 Version:	%{version}
