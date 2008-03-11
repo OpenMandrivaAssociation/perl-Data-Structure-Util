@@ -1,6 +1,6 @@
 %define module	Data-Structure-Util
 %define name	perl-%{module}
-%define version 0.13
+%define version 0.15
 %define release %mkrel 1
 
 Name:		%{name}
@@ -12,7 +12,6 @@ Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{module}
 Source:		http://www.cpan.org/modules/by-module/Data/%{module}-%{version}.tar.bz2
 BuildRequires:  perl-devel
-BuildRequires:	perl(Module::Build)
 BuildRequires:	perl(Test::Pod)
 BuildRequires:	perl(Clone)
 BuildRequires:	perl(File::Find::Rule)
@@ -36,15 +35,15 @@ It is written in C for decent speed.
 %setup -q -n %{module}-%{version}
 
 %build
-%{__perl} Build.PL installdirs=vendor
-./Build CFLAGS="%{optflags}"
+%{__perl} Makefile.PL INSTALLDIRS=vendor
+%make CFLAGS="%{optflags}"
 
 %check
-./Build test
+%__make test
 
 %install
 rm -rf %{buildroot}
-./Build install destdir=%{buildroot}
+%makeinstall_std
 
 %clean 
 rm -rf %{buildroot}
@@ -54,8 +53,4 @@ rm -rf %{buildroot}
 %doc CHANGES README
 %{perl_vendorarch}/Data
 %{perl_vendorarch}/auto/Data
-%{_bindir}/packages.pl
 %{_mandir}/man?/*	       
-
-
-
