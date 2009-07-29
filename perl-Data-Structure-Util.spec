@@ -1,22 +1,22 @@
-%define module	Data-Structure-Util
-%define name	perl-%{module}
-%define version 0.15
-%define release %mkrel 3
+%define upstream_name	 Data-Structure-Util
+%define upstream_version 0.15
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Change nature of data within a structure
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source:		http://www.cpan.org/modules/by-module/Data/%{module}-%{version}.tar.bz2
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Data/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:  perl-devel
 BuildRequires:	perl(Test::Pod)
 BuildRequires:	perl(Clone)
 BuildRequires:	perl(File::Find::Rule)
 BuildRequires:	perl(ExtUtils::CBuilder)
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 "Data::Structure::Util" is a toolbox to manipulate the data inside a
@@ -32,7 +32,7 @@ It is written in C for decent speed.
 
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
