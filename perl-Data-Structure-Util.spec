@@ -2,7 +2,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	0.16
-Release:	6
+Release:	7
 
 Summary:	Change nature of data within a structure
 License:	GPL+ or Artistic
