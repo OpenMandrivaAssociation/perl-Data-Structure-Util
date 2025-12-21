@@ -10,6 +10,7 @@ Group:		Development/Perl
 Url:		https://metacpan.org/pod/Data::Structure::Util
 Source0:	https://www.cpan.org/modules/by-module/Data/%{upstream_name}-%{version}.tar.gz
 
+BuildRequires:	make
 BuildRequires:  perl-devel
 BuildRequires:	perl(Test::Pod)
 BuildRequires:	perl(Clone)
